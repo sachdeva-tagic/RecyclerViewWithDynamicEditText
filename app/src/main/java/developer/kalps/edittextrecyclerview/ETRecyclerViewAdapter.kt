@@ -12,12 +12,13 @@ class ETRecyclerViewAdapter(private val callback : EditTextChangeListener) : Rec
         }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ETViewHolder {
-        return ETViewHolder.create(parent)
+        val vh =  ETViewHolder.create(parent,callback)
+        vh.setIsRecyclable(false)
+        return vh
     }
 
     override fun onBindViewHolder(holder: ETViewHolder, position: Int) {
-        holder.setIsRecyclable(false)
-        holder.bind(etList[position], callback)
+        holder.bind(etList[position])
     }
 
     override fun getItemCount(): Int = etList.size
