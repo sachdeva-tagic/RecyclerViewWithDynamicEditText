@@ -13,7 +13,8 @@ class ETViewHolder(private val binding: EtItemBinding) : RecyclerView.ViewHolder
 
     fun bind(etInfo: EditTextDataInfo, callback: EditTextChangeListener) {
         _callback = callback
-        binding.etItem.setText(etInfo.text)
+        binding.tilItem.hint = etInfo.hint
+        binding.etItem.setText(etInfo.text) // todo this works for now, but this should be text input edittext
         binding.etItem.addTextChangedListener(etTextWatcher)
     }
 

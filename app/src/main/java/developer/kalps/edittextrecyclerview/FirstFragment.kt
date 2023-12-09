@@ -1,5 +1,6 @@
 package developer.kalps.edittextrecyclerview
 
+import android.app.AlertDialog
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -91,7 +92,23 @@ class FirstFragment : Fragment(), EditTextChangeListener {
         etAdapter = ETRecyclerViewAdapter(this)
         binding.etRecyclerView.adapter = etAdapter
 
-        etAdapter.etList = listEt
+        etAdapter.etList = listEt //todo : this needs to be tested for a case where data is updated after recycler view is alsready showing edit texts, i.e case of new item addition
+
+        binding.btData.setOnClickListener {
+            val text = etAdapter.etList.joinToString(" | ") { "(${it.hint}:${it.text})" }
+            AlertDialog.Builder(context).setMessage(
+                text
+            ).show()
+        }
+
+        binding.ntUpdateList.setOnClickListener {
+            val list = arrayOf(
+                "k","l","m","n","o",
+                "p","q","r","s","t",
+                "u","v","w","x","y","z"
+                ).map {EditTextDataInfo(it,it)  }
+            etAdapter.etList = list
+        }
     }
 
     override fun onDestroyView() {

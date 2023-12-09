@@ -13,5 +13,23 @@
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+    <Button
+        android:id="@+id/btData"
+        android:layout_width="wrap_content"
+        android:text="get Data"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_margin="16dp"
+        />
+    <Button
+        android:id="@+id/ntUpdateList"
+        android:layout_width="wrap_content"
+        android:text="update list"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_margin="16dp"
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
